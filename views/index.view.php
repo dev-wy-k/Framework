@@ -2,7 +2,15 @@
 
     <h1>Usernames</h1>
     <?php foreach($users as $user) : ?>
-        <li><?= $user->name ; ?></li>
+        <h3>
+            <?= $user->name ; ?> 
+        </h3>
+        <a href="/update?id=<?= $user->id ; ?>">update</a>
+        <form action="/delete" method="post">
+            <input type="hidden" name="id" value="<?= $user->id ; ?>">
+            <button>Delete</button>
+        </form>
+        
     <?php endforeach ; ?>
    
     <h1>Submit Your Name</h1>
