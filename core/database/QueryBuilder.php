@@ -15,4 +15,21 @@ class QueryBuilder{
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_OBJ);
     }
+
+    public function insert($dataArr, $table)
+    {
+        $cols = implode(",",array_keys($dataArr));
+        $values = array_values($dataArr);
+
+        $questionLoop = array_keys($dataArr);
+        $questionMark = "";
+
+        foreach($questionLoop as $question){
+            $questionMark .= "?,";
+        }
+        $questionMark = rtrim($questionMark, ",");
+        
+        $statement = $this->pdo->prepare("insert into $table ($cols) values ($questionMark)");
+        $statement->execute($values);
+    }
 }
