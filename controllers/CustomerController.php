@@ -1,3 +1,2 @@
 <?php 
 
-view('customer');

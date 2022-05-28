@@ -31,10 +31,12 @@ class Router{
 
     public function direct($uri, $method)
     {
+        // dd($this->routes[$method][$uri]);
         if(!array_key_exists($uri, $this->routes[$method])){
             die("404 Page");
         }
-        $action = explode("@", $this->routes[$method][$uri]);
+        // $action = explode("@", $this->routes[$method][$uri]);
+        $action = $this->routes[$method][$uri];
         $this->callAction($action[0], $action['1']);
     }
 

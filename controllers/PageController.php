@@ -1,4 +1,6 @@
 <?php
+namespace controller ;
+
 use core\App;
 class PageController
 {
